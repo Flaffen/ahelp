@@ -1,0 +1,52 @@
+body {
+    font-family: 'Open Sans';
+}
+
+.type {
+    padding: 20px;
+}
+
+.bot {
+    font-size: 20px;
+}
+
+.expr {
+    border: 5px;
+    line-height: 5px;
+    margin:0 auto;
+}
+
+br {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.gomer {
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.George {
+    padding:0px;
+    line-height: 0;
+    margin-bottom: 20px;
+    background-color: lightcyan;
+}
+
+h5 {
+    color: black;
+}
+
+.Donatello25 {
+    padding:0px;
+    line-height: 0;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.Opel {
+    padding:0px;
+    line-height: 0;
+    margin-bottom: 20px;
+    background-color: lightcyan;
+}
