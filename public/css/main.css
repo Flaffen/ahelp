@@ -50,3 +50,29 @@ h5 {
     margin-bottom: 20px;
     background-color: lightcyan;
 }
+
+.phone {
+    color: red;
+}
+
+.categories {
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+.item {
+    border: 1px solid gray;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.img-circle {
+    border-radius: 50%;
+    border: 2px solid gray;
+}
+
+ul.dropdown-lr {
+    width: 300px;
+}

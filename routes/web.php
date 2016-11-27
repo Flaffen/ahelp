@@ -11,10 +11,9 @@
 |
 */
 
+/* Index */
 Route::get('/', 'IndexController@index');
-
-Route::get('/tasks', 'TaskController@index');
-Route::get('/task/{task}', 'TaskController@show');
+Route::post('/', 'IndexController@index');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
@@ -23,5 +22,14 @@ Route::get('/reg', function() {
     return view('auth.reg');
 });
 
+/* Settings */
 Route::get('/settings', 'SettingsController@show');
 Route::post('/settings', 'SettingsController@update');
+
+/* Tasks */
+Route::get('/task/new', 'TaskController@create');
+Route::post('/task', 'TaskController@store');
+Route::delete('/task/delete/{task}', 'TaskController@delete');
+
+/* Phone Number */
+Route::get('/phone/{task}', 'TaskController@phone');

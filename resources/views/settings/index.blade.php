@@ -12,13 +12,17 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="profile-photo">
-                        <img src="{{ asset('storage/user_images/' . Auth::user()->img) }}" alt="{{ Auth::user()->name }}">
+                        <img src="{{ asset('storage/user_images/' . Auth::user()->img) }}" alt="{{ Auth::user()->name }}" style="border-radius: 5px; width: 250px; height: 250px;">
+                        <figcaption>
+                            <input type="file" class="form-control-file" name="photo" style="padding-top: 15px;">
+                        </figcaption>
                     </div>
                 </div>
                 <div class="col-md-9">
                     {{ Auth::user()->name }}
                     <br>
                     <hr>
+                    <h6>Текущие настройки:</h6>
                     {{ Auth::user()->email }}
                     <br>
                     {{ Auth::user()->tel }}
@@ -50,12 +54,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="file" class="form-control-file" name="photo">
-                    </div>
-                </div>
-                <div class="col-md-9">
+                <div class="col-md-9 float-md-right">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -84,6 +83,11 @@
                     <p>{{ $task->content }}</p>
                     <p>{{ $task->city }}</p>
                     <p>{{ $task->reward }}</p>
+                    <form action="{{ url('/task/delete/' . $task->id) }}" method="POST">
+                        {{ method_field('delete') }}
+                        {{ csrf_field() }}
+                        <button class="btn btn-danger" type="submit">Удалить</button>
+                    </form>
                     <hr>
                 @endforeach
             </div>

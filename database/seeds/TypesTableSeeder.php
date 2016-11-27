@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Type;
 
 class TypesTableSeeder extends Seeder
 {
@@ -11,12 +12,20 @@ class TypesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('types')->insert([
-            'name' => 'Intelligence'
-        ]);
+        $types = [
+            'Интеллектуальный',
+            'Физический',
+            'Навигационный',
+            'Технический',
+            'Личный',
+            'Другое'
+        ];
 
-        DB::table('types')->insert([
-            'name' => 'Physical'
-        ]);
+        foreach ($types as $type)
+        {
+            Type::create([
+                'name' => $type
+            ]);
+        }
     }
 }

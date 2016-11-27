@@ -13,6 +13,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
         @yield('links')
     </head>
     <body>
@@ -20,20 +21,68 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Navbar -->
-                    <div>
+                    <div class="navbar navbar-light bg-faded">
                         <ul class="nav navbar-nav float-md-right">
                             @if (!Auth::check())
-                                <li class="nav-item">
-                                    <a href="{{ url('/login') }}" class="nav-link" id="login">Войти</a>
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link" id="login" data-toggle="dropdown">Войти</a>
+                                    <ul class="dropdown-menu dropdown-lr">
+                                        <div class="col-lg-12">
+                                            <div class="text-center"><h3><b>Вход</b></h3></div>
+                                            <form action="{{ url('/login') }}" method="post" role="form" autocomplete="off">
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="" autocomplete="off" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="password">Пароль</label>
+                                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <button class="btn btn-success float-md-right" type="submit">Войти</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </ul>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('/register') }}" class="nav-link" id="reg">Зарегестрироваться</a>
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link" id="login" data-toggle="dropdown">Зарегестрировться</a>
+                                    <ul class="dropdown-menu dropdown-lr">
+                                        <div class="col-lg-12">
+                                            <div class="text-center"><h3><b>Регистрация</b></h3></div>
+                                            <form action="{{ url('/register') }}" method="post" role="form" autocomplete="off">
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                    <label for="name">Имя</label>
+                                                    <input type="text" name="name" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">Электронная почта</label>
+                                                    <input type="text" name="email" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="password">Пароль</label>
+                                                    <input type="password" name="password" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="password_confirmation">Подтверждение пароля</label>
+                                                    <input type="password" name="password_confirmation" class="form-control" required>
+                                                </div>
+                                                <div class="form-group float-md-right">
+                                                    <button type="submit" class="btn btn-success">Зарегестрироваться</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </ul>
                                 </li>
                             @else
                                 <li class="nav-item">
                                     <div class="dropdown">
-                                        <a href="#" data-toggle="dropdown">{{ Auth::user()->name }}</a>
-                                        <div class="dropdown-menu">
+                                        <a href="#" data-toggle="dropdown" class="nav-link">{{ Auth::user()->name }}</a>
+                                        <div class="dropdown-menu dropdown-menu-right">
                                             <a href="{{ url('/settings') }}" class="dropdown-item">Настройки</a>
                                             <a href="{{ url('/task/new') }}" class="dropdown-item">Разместить задачу</a>
                                             <div class="dropdown-divider"></div>
@@ -48,7 +97,7 @@
                         </ul>
                         <ul class="nav navbar-nav float-md-left">
                             <li class="nav-item">
-                                <a href="/">Главная</a>
+                                <a href="{{ url('/') }}" class="nav-link">Главная</a>
                             </li>
                         </ul>
                     </div>
@@ -70,10 +119,11 @@
 
             @yield('content')
 
+            <footer>
+                &copy; Степан Паламарчук. Версия сайта - 0.1.
+                @yield('footer')
+            </footer>
         </div>
-        <footer>
-            @yield('footer')
-        </footer>
 
         <!-- Libs -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>

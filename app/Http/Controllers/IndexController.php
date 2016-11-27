@@ -4,13 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use App\Type;
 
 class IndexController extends Controller
 {
-    public function index() 
+    // TODO: ВЕСЬ МЕТОД И ВЬЮХА - КОСТЫЛЬ. ИСПРАВЬ, НЕ ПОЗОРЬСЯ!
+    public function index(Request $request)
     {
-        $tasks = Task::get();
+        if (count($request->all()) > 1) {
+            foreach ($request->all() as $k=>$v) {
+                if ($k == '_token') continue;
+                $checked[] = $k;
 
-        return view('index', ['tasks' => $tasks]);
+                foreach (Task::where('type_id', $v)->get() as $task) {
+                    $tasks[] = $task;
+                }
+            }
+        } else {
+            $tasks = Task::latest()->get();
+            $checked = [];
+        }
+
+        $types = Type::get();
+
+        return view('index', ['tasks' => $tasks, 'types' => $types, 'checked' => $checked]);
     }
 }

@@ -53,7 +53,7 @@ class SettingsController extends Controller
         {
             $new_photo = str_random(6) . '.png';
 
-            if ($request->user()->img)
+            if ($request->user()->img && $request->user()->img !== 'default.png')
             {
                 Storage::delete('public/user_images/' . $request->user()->img);
             }
