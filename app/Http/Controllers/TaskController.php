@@ -25,8 +25,12 @@ class TaskController extends Controller
         return view('tasks.show', ['task' => $task]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        if (!$request->user()->tel) {
+            return redirect('/settings')->with('status', 'Вам нужно указать номер телефона чтобы создавать объявления!');
+        }
+
         return view('tasks.create', [
             'types' => Type::all()
         ]);
