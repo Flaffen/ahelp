@@ -93,13 +93,13 @@
                 <div class="col-md-10">
                     <p>{{ $task->type->name }}</p>
                     @if (Auth::guest())
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#reg-modal">Номер телефона</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reg-modal">Номер телефона</button>
                     @elseif (Auth::user()->id === $task->user->id)
                         <a href="{{ url('/settings') }}">
-                            <button type="button" class="btn btn-danger">В настройки</button>
+                            <button type="button" class="btn btn-primary">В настройки</button>
                         </a>
                     @else
-                        <button type="button" class="btn btn-danger" onclick="getPhone({{ $task->id }});" id="{{ $task->id }}">Номер телефона</button>
+                        <button type="button" class="btn btn-primary" onclick="getPhone({{ $task->id }});" id="{{ $task->id }}">Номер телефона</button>
                     @endif
                 </div>
                 {{--<img src="{{ asset('storage/user_images/' . $task->user->img) }}" width="50" height="50" class="img-circle">--}}
