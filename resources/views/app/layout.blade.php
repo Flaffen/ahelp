@@ -38,7 +38,7 @@
 
                                                 <div class="form-group">
                                                     <label for="password">Пароль</label>
-                                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off" required>
+                                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Пароль" autocomplete="off" required>
                                                 </div>
 
                                                 <div class="form-group">
@@ -57,19 +57,19 @@
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
                                                     <label for="name">Имя</label>
-                                                    <input type="text" name="name" class="form-control" required>
+                                                    <input type="text" name="name" class="form-control" placeholder="Имя" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">Электронная почта</label>
-                                                    <input type="text" name="email" class="form-control" required>
+                                                    <input type="text" name="email" class="form-control" placeholder="Email" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password">Пароль</label>
-                                                    <input type="password" name="password" class="form-control" required>
+                                                    <input type="password" name="password" class="form-control" placeholder="Пароль" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password_confirmation">Подтверждение пароля</label>
-                                                    <input type="password" name="password_confirmation" class="form-control" required>
+                                                    <input type="password" name="password_confirmation" class="form-control" placeholder="Подтверждение пароля" required>
                                                 </div>
                                                 <div class="form-group float-md-right">
                                                     <button type="submit" class="btn btn-success">Зарегестрироваться</button>

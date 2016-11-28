@@ -131,12 +131,6 @@
                 </div>
                 <div class="modal-body">
                     <p>Вам нужно зарегестрироваться или войти чтобы узнать номер телефона!</p>
-                    <a href="{{ url('/reg') }}">
-                        <button type="button" class="btn btn-primary">Зарегестрироваться</button>
-                    </a>
-                    <a href="{{ url('/login') }}">
-                        <button type="button" class="btn btn-primary">Войти</button>
-                    </a>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
