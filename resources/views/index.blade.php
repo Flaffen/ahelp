@@ -70,7 +70,9 @@
             {{--<h3>Последние добавления:</h3>--}}
             {{--<hr align="left" width="700" size="200" color="skyblue">--}}
         {{--</div>--}}
-
+        @if (empty($tasks))
+            <div class="col-md-12" style="text-align: center">Тут ничего нет... :)</div>
+        @else
         @foreach ($tasks as $task)
             <div class="col-md-12 item">
                 <div class="col-md-2" style="text-align: center;">
@@ -119,6 +121,7 @@
                 {{--@endif--}}
             </div>
         @endforeach
+        @endif
     </div>
     <div class="modal fade" id="reg-modal">
         <div class="modal-dialog" role="document">

@@ -11,6 +11,8 @@ class IndexController extends Controller
     // TODO: ВЕСЬ МЕТОД И ВЬЮХА - КОСТЫЛЬ. ИСПРАВЬ, НЕ ПОЗОРЬСЯ!
     public function index(Request $request)
     {
+        $tasks = [];
+
         if (count($request->all()) > 1) {
             foreach ($request->all() as $k=>$v) {
                 if ($k == '_token') continue;
@@ -21,8 +23,8 @@ class IndexController extends Controller
                 }
             }
         } else {
-            $tasks = Task::latest()->get();
             $checked = [];
+            $tasks = Task::latest()->get();
         }
 
         $types = Type::get();
