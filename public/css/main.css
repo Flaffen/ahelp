@@ -55,13 +55,6 @@ h5 {
     color: red;
 }
 
-.categories {
-    padding: 5px;
-    border-radius: 5px;
-    background: white;
-    font-size: 21px;
-}
-
 .item {
     border: 1px solid gray;
     margin-bottom: 10px;
@@ -78,3 +71,9 @@ ul.dropdown-lr {
     width: 300px;
 }
 
+.categories {
+    padding: 5px;
+    border-radius: 5px;
+    background: white;
+    font-size: 21px;
+}
