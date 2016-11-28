@@ -61,7 +61,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 float-md-right">
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <ul>

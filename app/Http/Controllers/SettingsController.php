@@ -26,6 +26,10 @@ class SettingsController extends Controller
             'tel' => 'max:11|unique:users',
             'old_password' => 'max:65',
             'new_password' => 'max:65'
+        ], [
+            'email.unique' => 'Такой Email уже зарегестрирован!',
+            'tel.unique' => 'Такой номер телефона уже зарегестрирован!',
+            'tel.max' => 'Максимальная длинна номера телефона - 11 символов!'
         ]);
 
         if ($request->has('email'))
