@@ -57,8 +57,9 @@ h5 {
 
 .categories {
     padding: 5px;
-    border: 1px solid gray;
-    border-radius: 2px;
+    border-radius: 5px;
+    background: white;
+    font-size: 21px;
 }
 
 .item {
@@ -76,3 +77,4 @@ h5 {
 ul.dropdown-lr {
     width: 300px;
 }
+

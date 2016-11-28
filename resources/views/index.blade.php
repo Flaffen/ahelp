@@ -8,6 +8,7 @@
             <h2>volhelp.ru - главная страница</h2>
         </div>
     </div>
+    <hr>
     <div class="row">
         <div class="col-md-12 categories">
             <div>
