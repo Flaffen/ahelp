@@ -88,7 +88,7 @@
                     <p>{{ $task->content }}</p>
                 </div>
                 <div class="col-md-10">
-                    <p style="color: #2ecc71"><i class="fa fa-rub"></i> {{ $task->reward }}</p>
+                    <p style="color: #2ecc71"><i class="fa fa-suitcase"></i> {{ $task->reward }}</p>
                 </div>
                 <div class="col-md-10">
                     <p>{{ $task->type->name }}</p>
