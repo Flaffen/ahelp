@@ -20,9 +20,10 @@ class TaskController extends Controller
         return view('tasks.index', ['tasks' => $tasks]);
     }
 
-    public function show(Task $task) 
+    public function edit(Request $request, Task $task)
     {
-        return view('tasks.show', ['task' => $task]);
+        $types = Type::get();
+        return view('tasks.edit', ['task' => $task, 'types' => $types]);
     }
 
     public function create(Request $request)
@@ -79,5 +80,34 @@ class TaskController extends Controller
     public function phone(Request $request, Task $task)
     {
         return response()->json($task->user->tel);
+    }
+
+    public function update(Request $request, Task $task)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:65',
+            'city' => 'required|max:65',
+            'content' => 'required|max:400',
+            'reward' => 'required|max:65'
+        ], [
+            'title.required' => 'Заполните заголовок объявления.',
+            'city.required' => 'Впишите свой город.',
+            'content.required' => 'Введите описание объявления.',
+            'reward.required' => 'Назначьте награждение.'
+        ]);
+
+        if ($task->update([
+            'title' => $request->title,
+            'city' => $request->city,
+            'content' => $request->content,
+            'type_id' => $request->type,
+        ]))
+        {
+            return back()->with('status', 'Объявление успешно сохранено!');
+        }
+        else
+        {
+            return back()->with('status', 'Что-то пошло не так!');
+        }
     }
 }

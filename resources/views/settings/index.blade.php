@@ -87,6 +87,9 @@
                         {{ method_field('delete') }}
                         {{ csrf_field() }}
                         <button class="btn btn-danger" type="submit">Удалить</button>
+                        <a href="{{ url('/task/' . $task->id . '/edit') }}">
+                            <button class="btn btn-primary" type="button">Редактировать</button>
+                        </a>
                     </form>
                     <hr>
                 @endforeach

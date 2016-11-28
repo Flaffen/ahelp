@@ -30,6 +30,8 @@ Route::post('/settings', 'SettingsController@update');
 Route::get('/task/new', 'TaskController@create');
 Route::post('/task', 'TaskController@store');
 Route::delete('/task/delete/{task}', 'TaskController@delete');
+Route::get('/task/{task}/edit', 'TaskController@edit');
+Route::post('/task/{task}', 'TaskController@update');
 
 /* Phone Number */
 Route::get('/phone/{task}', 'TaskController@phone');
